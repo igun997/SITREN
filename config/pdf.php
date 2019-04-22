@@ -2,7 +2,7 @@
 
 return [
 	'mode'                  => 'utf-8',
-	'format'                => 'A5',
+	'format'                => 'A4',
 	'author'                => 'Pondok Pesantren Ar-Risalah',
 	'subject'               => '',
 	'keywords'              => '',

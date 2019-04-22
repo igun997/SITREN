@@ -123,11 +123,26 @@ Route::group(['middleware' => ['pengurus']], function () {
   Route::get('/pengurus/ijin/daftar/{id}','Pengurus\IjinControl@daftar');
   Route::get('/pengurus/ijin/daftar/{id}/{tipe}','Pengurus\IjinControl@daftar_aksi');
 });
+
 Route::group(['middleware' => ['bmt']], function () {
   Route::get('/bmt','Bmt\BmtControl@index');
+  Route::get('/bmt/trigger','Bmt\BmtControl@trigger');
   Route::get('/bmt/nasabah','Bmt\NasabahControl@index');
+  Route::get('/bmt/nasabah/view/{id}','Bmt\NasabahControl@view');
+  Route::get('/bmt/nasabah/print/{id}','Bmt\NasabahControl@print');
+
   Route::get('/bmt/transaksi','Bmt\TransaksiControl@index');
+  Route::get('/bmt/transaksi/setor/{id?}','Bmt\TransaksiControl@setor');
+  Route::post('/bmt/transaksi/setor/{id?}','Bmt\TransaksiControl@setor_aksi');
+  Route::get('/bmt/transaksi/tarik','Bmt\TransaksiControl@tarik');
+  Route::get('/bmt/transaksi/tarik/{id?}','Bmt\TransaksiControl@tarik');
+  Route::post('/bmt/transaksi/tarik/{id?}','Bmt\TransaksiControl@tarik_aksi');
+  Route::get('/bmt/transaksi/cetak/{id}','Bmt\TransaksiControl@cetak');
+
   Route::get('/bmt/laporan','Bmt\LaporanControl@index');
+  Route::post('/bmt/laporan','Bmt\LaporanControl@index_aksi');
+  Route::get('/bmt/pengaturan','Bmt\PengaturanControl@index');
+  Route::post('/bmt/pengaturan','Bmt\PengaturanControl@index_aksi');
 });
 Route::group(['middleware' => ['tu']], function () {
   Route::get('/tu','TuControl@index');

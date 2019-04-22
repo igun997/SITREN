@@ -16,6 +16,18 @@ function genijin()
   $id = date("ymd").str_pad(($obj->count()+1),3,"0",STR_PAD_LEFT);
   return $id;
 }
+function genbmt_masuk()
+{
+  $obj = Sitren\TransaksiModel::whereDay('created_at', '=', date('d'));
+  $id = "BMT-01-".date("ymd")."-".str_pad(($obj->count()+1),3,"0",STR_PAD_LEFT);
+  return $id;
+}
+function genbmt_keluar()
+{
+  $obj = Sitren\TransaksiModel::whereDay('created_at', '=', date('d'));
+  $id = "BMT-02-".date("ymd")."-".str_pad(($obj->count()+1),3,"0",STR_PAD_LEFT);
+  return $id;
+}
 function getkamar($id)
 {
   return  \Sitren\AssignKamar::where(["id_santri"=>$id])->first();

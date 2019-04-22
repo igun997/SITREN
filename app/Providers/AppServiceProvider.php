@@ -113,6 +113,33 @@ class AppServiceProvider extends ServiceProvider
                  'url' => 'pengurus/laporan',
                  'icon'=>"file",
                ]);
+             }elseif (auth()->check() && auth()->user()->level == "bmt") {
+               $event->menu->add('MAIN NAVIGATION');
+               $event->menu->add([
+                 'text' => 'Beranda',
+                 'url' => 'bmt',
+                 'icon'=>"home",
+               ]);
+               $event->menu->add([
+                 'text' => 'Data Nasabah',
+                 'url' => 'bmt/nasabah',
+                 'icon'=>"users",
+               ]);
+               $event->menu->add([
+                 'text' => 'Data Transaksi',
+                 'url' => 'bmt/transaksi',
+                 'icon'=>"file",
+               ]);
+               $event->menu->add([
+                 'text' => 'Laporan',
+                 'url' => 'bmt/laporan',
+                 'icon'=>"file",
+               ]);
+               $event->menu->add([
+                 'text' => 'Pengaturan',
+                 'url' => 'bmt/pengaturan',
+                 'icon'=>"gears",
+               ]);
              }
            });
     }

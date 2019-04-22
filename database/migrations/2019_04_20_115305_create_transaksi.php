@@ -19,6 +19,7 @@ class CreateTransaksi extends Migration
             $table->enum("jenis",["keluar","masuk","biaya_transfer","biaya_admin"]);
             $table->double("jumlah");
             $table->bigInteger("id_pengurus")->unsigned();
+            $table->text("keterangan")->nullable();
             $table->timestamps();
             $table->foreign('id_santri')
             ->references('id_santri')->on('santri')
