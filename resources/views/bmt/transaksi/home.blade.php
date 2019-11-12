@@ -70,10 +70,10 @@
 @stop
 
 @section('css')
-
 @stop
 
 @section('js')
+
 <script type="text/javascript">
   $(document).ready(function() {
     $("#main").DataTable({

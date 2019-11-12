@@ -126,7 +126,9 @@ Route::group(['middleware' => ['pengurus']], function () {
 
 Route::group(['middleware' => ['bmt']], function () {
   // ApiControl
-  Route::get('/api/bmt/getTabunganBySantri/{id}','ApiControl@getTabunganBySantri')->name("api.bmt.getTabunganBySantri");
+  Route::get('/api/bmt/getTabunganBySantri/{id?}','ApiControl@getTabunganBySantri')->name("api.bmt.getTabunganBySantri");
+  Route::post('/api/bmt/savetrx/{id?}','ApiControl@savetrx')->name("api.bmt.savetrx");
+  Route::get('/api/bmt/getInfoSantri/{id?}','ApiControl@getInfoSantri')->name("api.bmt.getInfoSantri");
   // End ApiControl
   Route::get('/bmt','Bmt\BmtControl@index');
   Route::get('/bmt/trigger','Bmt\BmtControl@trigger');

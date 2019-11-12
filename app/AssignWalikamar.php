@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Fri, 19 Apr 2019 11:20:08 +0000.
+ * Date: Tue, 12 Nov 2019 19:19:20 +0000.
  */
 
 namespace Sitren;
@@ -11,11 +11,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class AssignWalikamar
- *
+ * 
  * @property int $id_awr
  * @property int $id_kamar
  * @property int $id_pengurus
- *
+ * 
  * @property \Sitren\Kamar $kamar
  * @property \Sitren\Pengurus $pengurus
  *
@@ -39,11 +39,11 @@ class AssignWalikamar extends Eloquent
 
 	public function kamar()
 	{
-		return $this->belongsTo(\Sitren\KamarModel::class, 'id_kamar');
+		return $this->belongsTo(\Sitren\Kamar::class, 'id_kamar');
 	}
 
 	public function pengurus()
 	{
-		return $this->belongsTo(\Sitren\PengurusModel::class, 'id_pengurus');
+		return $this->belongsTo(\Sitren\Pengurus::class, 'id_pengurus');
 	}
 }
