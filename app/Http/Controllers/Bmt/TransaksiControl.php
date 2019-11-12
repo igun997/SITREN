@@ -31,24 +31,24 @@ class TransaksiControl extends Controller
         "jumlah"=>"required"
       ]);
       $data = $req->all();
-      $jenis = $data["asal"];
-      unset($data["asal"]);
+      // $jenis = $data["asal"];
+      // unset($data["asal"]);
       $getPengurus = \Sitren\PengurusModel::where(["id"=>auth()->user()->id])->first();
       $data["id_pengurus"] = $getPengurus->id_pengurus;
       $data["id_transaksi"] = genbmt_masuk();
       $createtrx = \Sitren\TransaksiModel::create($data);
       if ($createtrx) {
-        if ($jenis == "transfer") {
-          $copy = $data;
-          $getbiaya = \Sitren\SettingModel::where(["meta_key"=>"biaya_transfer"])->first()->meta_value;
-          $copy["id_transaksi"] = genbmt_masuk();
-          $copy["jumlah"] = $getbiaya;
-          $copy["jenis"] = "biaya_transfer";
-          if ( !(\Sitren\TransaksiModel::create($copy))) {
-            \Sitren\TransaksiModel::find($data["id_transaksi"])->delete();
-            return back()->withError("msg","Biaya Admin Tidak Bisa Dimasukan");
-          }
-        }
+        // if ($jenis == "transfer") {
+          // $copy = $data;
+          // $getbiaya = \Sitren\SettingModel::where(["meta_key"=>"biaya_transfer"])->first()->meta_value;
+          // $copy["id_transaksi"] = genbmt_masuk();
+          // $copy["jumlah"] = $getbiaya;
+          // $copy["jenis"] = "biaya_transfer";
+          // if ( !(\Sitren\TransaksiModel::create($copy))) {
+          //   \Sitren\TransaksiModel::find($data["id_transaksi"])->delete();
+          //   return back()->withError("msg","Biaya Admin Tidak Bisa Dimasukan");
+          // }
+        // }
         return back()->with("msg","Data Transaksi Tersimpan");
       }else {
         return back()->withErrors(["error"=>"Gagal Menyimpan Data"]);

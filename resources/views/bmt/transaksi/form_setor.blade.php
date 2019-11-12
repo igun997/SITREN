@@ -59,13 +59,6 @@
               <input type="text" hidden name="jenis" value="masuk">
               <input type="text" name="id_santri" hidden value="{{$data->id_santri}}">
               <div class="form-group">
-                <label>Asal Setoran</label>
-                <select class="form-control" required name="asal">
-                  <option value="langsung">Setor Tunai</option>
-                  <option value="transfer">Transfer</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label>Keterangan</label>
                 <textarea name="keterangan" class="form-control" rows="3" cols="80"></textarea>
               </div>

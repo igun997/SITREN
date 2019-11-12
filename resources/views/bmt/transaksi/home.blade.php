@@ -11,14 +11,14 @@
         <div class="box-title">
           {{$title}}
         </div>
-        <div class="pull-right">
+        <!-- <div class="pull-right">
             <a href="{{url('bmt/transaksi/setor')}}" class="btn btn-success">
               <i class="fa fa-plus"></i>
             </a>
             <a href="{{url('bmt/transaksi/tarik')}}" class="btn btn-danger">
               <i class="fa fa-minus"></i>
             </a>
-        </div>
+        </div> -->
       </div>
       <div class="box-body">
         <table class="table" id="main">
